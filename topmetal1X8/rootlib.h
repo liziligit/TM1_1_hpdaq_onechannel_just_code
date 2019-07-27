@@ -1,3 +1,11 @@
+//为兼容macos, rootlibx.h与rootlib.h的区别是更改了三个地方，分别是（行位置只是大概值）:
+//1976行的//if( pedeOpen==NULL ){；
+//2195行的//if( polPar==NULL ){；
+//2219行的//if( polParRev==NULL ){；
+//2243行的//if( pedeOpen==NULL ){；
+//2784行的//if( foutPar==NULL ){；
+//该rootlibx.h也可在linux下直接运行，故后续会不使用rootlib.h头文件
+
 #ifndef _ROOTLIB_
 #define _ROOTLIB_
 
