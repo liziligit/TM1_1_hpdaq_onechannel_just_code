@@ -1,0 +1,14 @@
+#-----------------------------------------------------------
+# Vivado v2015.4.2 (64-bit)
+# SW Build 1494164 on Fri Feb 26 04:18:54 MST 2016
+# IP Build 1491208 on Wed Feb 24 03:25:39 MST 2016
+# Start of session at: Sat Dec  1 20:47:47 2018
+# Process ID: 6545
+# Current directory: /home/addy2/Desktop/TM1_1_hpdaq_onechannel/script_bm
+# Command line: vivado
+# Log file: /home/addy2/Desktop/TM1_1_hpdaq_onechannel/script_bm/vivado.log
+# Journal file: /home/addy2/Desktop/TM1_1_hpdaq_onechannel/script_bm/vivado.jou
+#-----------------------------------------------------------
+start_gui
+exit
+INFO: [Common 17-206] Exiting Vivado at Sat Dec  1 20:48:19 2018...
