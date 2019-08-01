@@ -9,7 +9,7 @@ data: 20190727
 /script_bm
 /topmetal1X8
 中.cpp/.sh/.c/后缀的文件加执行权限，命令为chmod u+x filename或一次性给全部文件加执行权限 chmod u+x *
-2、再在/script_bm中打开终端，执行./run.sh命令，其代码内容如下：
+2、再在/script_bm中打开终端，执行./run.sh命令，其代码内容如下，芯片对光敏感，需要遮光：
 
 ./initiTm2-.sh 0.78 0.62   //初始化参考电压
 sleep 1
@@ -50,7 +50,11 @@ test02代表上面放数据的文件夹
 ./pd1_SyncDraw2D_energy_spectrum_root.sh 11 1 -10 10 1 1120hv600pe1alp01
 3、提取像素矩阵
 ./pd1SyncDraw2D_to_txt.sh 5 2901 -10 10 1 500hv29_01
-
+----------------------------------
+四、将通道0的芯片改为通道3芯片，程序中做法为：
+1、更改/daq/clib.h中"if(proPar->displayMode == 3){"下的行"int chaNum=6;"为对应的通道号,长条板从内向外的芯片所对应通道号为7，6，5，4，0，1，2，3，
+2、删除/daq/realTime.ce，或加后缀标识更改为realTime_ch3.ce，下次直接删除后缀直接用，在FPGA可运行状态下重新执行编译./mytcp -c realTime.c等待生成新realTime.ce，在生成新的realTime.ce后，会取数并在/data/下生成out_0.pd1，大小为671MB，即立刻可按Ctrl+c退出，不用等待取数完成，因为会耗时约一分钟。
+3、取数看芯片输出，在遮光条件下运行到./pede.sh时的RMS值应该为1.6左右。
 
 
 
