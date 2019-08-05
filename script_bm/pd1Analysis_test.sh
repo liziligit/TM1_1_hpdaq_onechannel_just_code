@@ -2,7 +2,7 @@ dataFolder=$1
 dataNum=$2
 pedeNum=$3
 dataFile=../data/runData/${dataFolder}/xbeam_${dataNum}
-pedeFile=../data/runData/${store_file_name}/xpede_${pedeNum}
+pedeFile=../data/runData/${dataFolder}/xpede_${pedeNum}
 cppPath=../topmetal1X8
 
 

@@ -2,9 +2,11 @@
 author: lizili
 data: 20190727
 本程序适合在mac上运行，要在linux上运行请看第二部分
+data:20190804
+增加同时读出2个芯片的说明，在第一部分的第28行的./pd1SyncDraw2D_chips.sh部分，针对TM20190710_2chips文件夹
 ----------------------------------
 一、运行方法：
-1、拷贝文件后需要把如下文件夹
+1、拷贝TM1_1_hpdaq_onechannel_mac文件夹后需要把如下文件夹
 /daq
 /script_bm
 /topmetal1X8
@@ -23,6 +25,7 @@ sleep 1
 sleep 1 
 ./pd1SyncDraw2D.sh 3 1 -10 10 2 test02    
 //画出动态图，即逐帧显示72*72的图,在终端中按下空格可暂停跑帧，看终端提示，输入50000后回车可截图放到test02文件夹，输入1前进一个frame，输入-1后退一个frame，10000跳到下一个pd1文件，-10000后退到上一个pd1文件。
+//对于同时读出2个芯片，则运行./pd1SyncDraw2D_chips.sh 1 1 -10 10 1 test03
 3代表/data/runData/test02/xbeam_5.pd1
 1代表/data/runData/test02/xpede_5.pd1
 2代表显示的动态图像位置,指root画图是左上角的坐标向下的偏移量
