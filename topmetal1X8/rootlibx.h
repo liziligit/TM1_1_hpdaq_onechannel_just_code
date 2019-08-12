@@ -9589,6 +9589,10 @@ void beamPosFit_show_all_pixel_pd1(char *pedeFile, int ich, int iframe, double u
 	double theta = 0;
 
 	double di;
+	// double di2; 
+	// double m4;
+	// double diMean2=0;
+	// double delta_resol = 0;
 	double pointX, pointY; 
 	double diMean=0;
 	double diRMS=0;
@@ -9654,6 +9658,7 @@ void beamPosFit_show_all_pixel_pd1(char *pedeFile, int ich, int iframe, double u
 	TGraphErrors ge;
 	TGraphErrors geRota;	
 	int iPoint=0;
+	int iPoint2 = 0;
         for(int irow = 1; irow < 71; irow++){
         	rowSum = 0;
 		pixelMean = 0;
@@ -9709,16 +9714,40 @@ void beamPosFit_show_all_pixel_pd1(char *pedeFile, int ich, int iframe, double u
 	
 	diMean = diMean + di;
 	diRMS = diRMS + di*di;
+	cout<<di<<endl;
 	iPoint++; 
     }
 
 
 	diRMS = sqrt(abs(diRMS-diMean*diMean/70)/(70-1));
-	diMean = diMean/70;
+	//diMean = diMean/70;
 	resol = diRMS/sqrt(70);
 
+	// diMean2 = 0;
+	// m4 = 0;
+	// iPoint2 = 0;
 
-	cout<<"resol: "<<resol<<endl;
+	// diMean2 = diMean/70;
+	
+	// for(int irow = 1; irow < 71; irow++){
+
+	// ge.GetPoint(iPoint2,pointX,pointY);
+
+	// di2 = (pointY-(k*(irow+1)*pitch+b))*cos(atan(k));
+	// m4 = m4 + (pow((di2 - diMean2),4))/70;
+	// //cout<<"di2: "<<di2<<endl;
+	// iPoint2++; 
+	// //cout<<"m4: "<< m4 <<endl;
+	// //cout<<"diMean2: "<<diMean2<<endl;
+	// //cout<<"pow((di2 - diMean2),4): " << pow((di2 - diMean2),4) << endl;
+	// }
+
+	// delta_resol = sqrt(m4 - (70-3)/(70-1)*(pow(resol,4)))/(2*70*resol);
+
+	//cout<<"diMean2: "<<diMean2<<endl;
+	//cout<<"m4: "<< m4 <<endl;
+	cout<<"resol: "<< resol <<endl;
+	// cout<<"delta_resol: "<< delta_resol <<endl;
 
 	TString hist2dNameRotat;
         hist2dNameRotat = "hAdc2dMap_iframe"; //hist2dNameRotat += iframe;
@@ -9994,11 +10023,10 @@ void beamPosFit_pd1(char *pedeFile, int ich, int iframe, double upLimit, double 
 
 
 	diRMS = sqrt(abs(diRMS-diMean*diMean/70)/(70-1));
-	diMean = diMean/70;
+	//diMean = diMean/70;
 	resol = diRMS/sqrt(70);
 
-
-	cout<<"resol: "<<resol<<endl;
+	cout<<"resol-: "<<resol<<endl;
 
 	TString hist2dNameRotat;
         hist2dNameRotat = "hAdc2dMap_iframe"; //hist2dNameRotat += iframe;
@@ -10883,7 +10911,7 @@ void beamAngleResol_pd1(char *pedeFile, int ich, int iframe, double upLimit, dou
 	h1Angle->Fit("gaus","Q");//gaus fit
 	cout<<h1Angle->TH1D::GetRMS()<<endl;
 
-    char *beamPosFitNamePng =Form("pd1png/beamAngleResolcha%dFrame%d.png",ich, iframe);
+    char *beamPosFitNamePng =Form("pd1png2/beamAngleResolcha%dFrame%d.png",ich, iframe);
         cBeamPosFit->SaveAs(beamPosFitNamePng);
 
     delete cBeamPosFit;

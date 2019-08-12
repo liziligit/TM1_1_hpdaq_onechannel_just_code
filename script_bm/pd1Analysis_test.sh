@@ -1,8 +1,8 @@
 dataFolder=$1
 dataNum=$2
 pedeNum=$3
-dataFile=../data/runData/${dataFolder}/xbeam_${dataNum}
-pedeFile=../data/runData/${dataFolder}/xpede_${pedeNum}
+dataFile=/Users/lizili/Desktop/TM1_1_hpdaq_onechannel_mac/data/runData/${dataFolder}/xbeam_${dataNum}
+pedeFile=/Users/lizili/Desktop/TM1_1_hpdaq_onechannel_mac/data/runData/${dataFolder}/xpede_${pedeNum}
 cppPath=../topmetal1X8
 
 

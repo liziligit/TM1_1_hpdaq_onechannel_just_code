@@ -34,7 +34,7 @@ pd1d.beamPosFit_show_all_pixel_pd1(pedeInput, ich, iframe, upLimit, lowLimit);//
 // pd1d.beamProfile_pd1(pedeInput, ich, iframe, upLimit, lowLimit);//align straight and sum 72 row to fit
 // pd1d.beamPosGausrowFit_pd1(pedeInput, ich, iframe, upLimit, lowLimit);//for single row fit
 // pd1d.beamPosgausFit_pd1(pedeInput, ich, iframe, upLimit, lowLimit);//for 72 row fit
-//pd1d.beamAngleResol_pd1(pedeInput, ich, iframe, upLimit, lowLimit);//for angle fit
+pd1d.beamAngleResol_pd1(pedeInput, ich, iframe, upLimit, lowLimit);//for angle fit
 //pd3d.framePosResol(ich, iframe, upLimit, lowLimit);
 //pd3d.beamIntensityResol(ich, upLimit, lowLimit);
 //pd3d.beamSize(ich, upLimit, lowLimit);
