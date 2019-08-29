@@ -9714,7 +9714,7 @@ void beamPosFit_show_all_pixel_pd1(char *pedeFile, int ich, int iframe, double u
 	
 	diMean = diMean + di;
 	diRMS = diRMS + di*di;
-	cout<<di<<endl;
+	//cout<<irow << "=" <<di<<endl;
 	iPoint++; 
     }
 
@@ -10887,7 +10887,7 @@ void beamAngleResol_pd1(char *pedeFile, int ich, int iframe, double upLimit, dou
 		cout <<"error, the same row value" <<endl;
 	}
 	thetaSum += (90 - theta[i]);
-	cout<< i << "=" <<(90 - theta[i]) <<endl;
+	//cout<< i << "=" <<(90 - theta[i]) <<endl;
 	h1Angle->Fill((90 - theta[i]));
 	}
 
@@ -10896,7 +10896,7 @@ void beamAngleResol_pd1(char *pedeFile, int ich, int iframe, double upLimit, dou
 		thetaRMS += (((90 - theta[i])-thetaSum)*((90 - theta[i])-thetaSum));
 	}
 
-	thetaRMS = sqrt(thetaRMS/(nPoints-1));//标准差
+	thetaRMS = abs(sqrt(thetaRMS/(nPoints-1)));//标准差
 
 	cout<<"thetaMean: "<<thetaSum<<endl;
 	cout<<"thetaRMS: "<<thetaRMS<<endl;
