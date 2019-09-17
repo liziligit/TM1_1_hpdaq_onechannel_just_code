@@ -10,3 +10,7 @@ script_bm/pd1png2/
 *.cxx_tmp_81737
 
 *.d
+
+topmetal1X8/\.DS_Store
+
+\.DS_Store

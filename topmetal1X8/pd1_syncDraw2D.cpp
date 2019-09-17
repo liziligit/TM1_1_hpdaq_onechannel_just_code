@@ -64,18 +64,19 @@ char *store_file_name;
 store_file_name = argv[8];
 
 int Key_input;
-char str[30];
+char str[50];
 int k=0;
 
 pd1Pede pede;
 placData_1 pd1;
-char infn[100];
-char pedefn[100];
-char beamfn[100];
+char infn[200];
+char pedefn[200];
+char beamfn[200];
 
 //sprintf(infn,"%s_%d.pd1",infile, fileId);
-sprintf(pedefn,"%s_%d.txt", pedefile, pedeId);
-sprintf(beamfn,"../data/runData/%s/", store_file_name);
+sprintf(pedefn,"%s/xpede_%d.txt", pedefile, pedeId);
+// sprintf(beamfn,"../data/runData/%s/", store_file_name);
+sprintf(beamfn,"%s/", infile);
 /////get beamId in to list
 vector<string> name_id;
 
@@ -132,7 +133,7 @@ vector<int> idList;
     if(fileId <= idList[j])
     {
    		fileId = idList[j];
-    	sprintf(infn,"%s_%d.pd1",infile, fileId);
+    	sprintf(infn,"%s/xbeam_%d.pd1",infile, fileId);
     	cout << "begin to plot" << infn << endl;
     	//cout << "begin j=" <<j << endl;
     	pd1.read(infn);
@@ -208,7 +209,7 @@ vector<int> idList;
 					//for saving frame png	
 					else if(Key_input == 50000)
 					{
-						pt.c->SaveAs(TString::Format("../data/runData/%s/cut_%s_%d_%d.png", store_file_name,store_file_name,fileId,i));
+						pt.c->SaveAs(TString::Format("%s/cut_%s_xbeam%d_xpede%d_iFrame%d.png", infile,store_file_name,pedeId,fileId,i));
 						goto wait_opera;
 					}
 					//end for saving frame png	
@@ -271,7 +272,8 @@ vector<int> idList;
 						//for saving frame png	
 						else if(Key_input == 50000)
 						{
-						pt.c->SaveAs(TString::Format("../data/runData/%s/cut_%s_%d_%d.png", store_file_name,store_file_name,fileId,i));
+						// pt.c->SaveAs(TString::Format("../data/runData/%s/cut_%s_%d_%d.png", store_file_name,store_file_name,fileId,i));
+							pt.c->SaveAs(TString::Format("%s/cut_%s_xbeam%d_xpede%d_iFrame%d.png", infile,store_file_name,pedeId,fileId,i));
 						goto wait_opera;
 						}
 						//end for saving frame png		

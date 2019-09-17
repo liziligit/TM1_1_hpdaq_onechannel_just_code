@@ -16,7 +16,7 @@ N|n|NO|no)
   break;;
 esac
 '
-
+#./pd1SyncDraw2D.sh 5 2901 -10 10 2 500hv29_01
 
 
 ./initiTm2-.sh 0.78 0.62
