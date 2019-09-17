@@ -1,0 +1,14 @@
+
+Processing ../topmetal1X8/pd1_analysis_test.cpp++("/Users/lizili/Desktop/TM1_1_hpdaq_onechannel_mac/data/runData/500hv29_01/xbeam_16", "/Users/lizili/Desktop/TM1_1_hpdaq_onechannel_mac/data/runData/500hv29_01/xpede_2901", 0,2918, 30, 0)...
+resol: 3.13566
+theta: 80.9012
+thetaMean: 80.7939
+thetaRMS: 0.691302
+thetaResol: 0.116851
+0.603009
+(int) 0
+
+
+
+所有上面的形式最后汇总成下面格式：
+beam16\_frame2918\_pede2901 & 3.13566 & 0.116851 \\  \hline

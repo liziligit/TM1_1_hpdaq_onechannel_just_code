@@ -5,7 +5,7 @@
 #include <sys/socket.h>
 #include <netinet/in.h>
 #include <termios.h>
-//#include <termio.h>//for linux
+// #include <termio.h>//for linux
 #include "termio.h"//only for mac
 #include <unistd.h>
 #include <sys/ioctl.h>

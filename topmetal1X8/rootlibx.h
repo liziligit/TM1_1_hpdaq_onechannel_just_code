@@ -10428,7 +10428,7 @@ void beamPosGausrowFit_pd1(char *pedeFile, int ich, int iframe, double upLimit, 
 
        TH1D *beamProfileX=new TH1D("beamProfileX", "Beam Profile", 72, 0*pitch, 72*pitch);
 
-	for(int irow = 0; irow < 72; irow++){
+	for(int irow = 0; irow < 72; irow++){//set which row your want to fit
       	for(int icol = 0; icol < 72; icol++){
 			pixelValue = hAdc2dMap->GetBinContent(icol+1, irow+1);	
 			beamProfileX->SetBinContent(icol+1, pixelValue);		
@@ -10444,7 +10444,7 @@ void beamPosGausrowFit_pd1(char *pedeFile, int ich, int iframe, double upLimit, 
 
       TCanvas *cBeamProfile = new TCanvas("cBeamProfile", "Beam Profile", 800 ,800);	
     cBeamProfile->cd();
-    cBeamProfile->SetCanvasSize(700, 600);
+    cBeamProfile->SetCanvasSize(500, 500);
 
 	beamProfileX->Draw();//draw 1d profile
 	beamProfileX->SetTitle("");
@@ -10458,8 +10458,23 @@ void beamPosGausrowFit_pd1(char *pedeFile, int ich, int iframe, double upLimit, 
 	GausMean[irow]=f->GetParameter(1);
 	cout<< "gaus_mean_" <<irow << "=" << GausMean[irow] <<endl;
 
-	char *beamProfilePng =Form("pd1png/beamgausrow_fit_Chip%dFrame%dline%d.png",ich, iframe, irow);
+	cBeamProfile->Modified();
+cBeamProfile->Update();
+TPaveStats *statsbox01 = (TPaveStats*)cBeamProfile->GetPrimitive("stats");
+statsbox01->SetName("beamProfileX");
+statsbox01->SetLineColor(kBlack);
+statsbox01->SetTextColor(kBlack);
+statsbox01->SetFillColor(0);//set stats box fill color
+statsbox01->SetFillStyle(0);//set fill style
+statsbox01->SetX1NDC(0.54);//lower left corner X1
+statsbox01->SetY1NDC(0.70);//lower left corner Y1
+statsbox01->SetX2NDC(0.9);//top right corner X2
+statsbox01->SetY2NDC(0.9);//top right corner Y2
+
+	char *beamProfilePng =Form("pd1png/beamgausrow_fit_Chip%dFrame%dline%d.eps",ich, iframe, irow);
         cBeamProfile->SaveAs(beamProfilePng);
+    // char *beamProfilePng1 =Form("pd1png/beamgausrow_fit_Chip%dFrame%dline%d.root",ich, iframe, irow);
+    //     cBeamProfile->SaveAs(beamProfilePng1);
 	//char *beamProfilePdf =Form("pd1png/2line37_beamProfile_oneline_Chip%dFrame%d.pdf",ich, iframe);
     	//cBeamProfile->SaveAs(beamProfilePdf);
 	delete cBeamProfile;	
