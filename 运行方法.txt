@@ -59,5 +59,7 @@ test02代表上面放数据的文件夹
 2、删除/daq/realTime.ce，或加后缀标识更改为realTime_ch3.ce，下次直接删除后缀直接用，在FPGA可运行状态下重新执行编译./mytcp -c realTime.c等待生成新realTime.ce，在生成新的realTime.ce后，会取数并在/data/下生成out_0.pd1，大小为671MB，即立刻可按Ctrl+c退出，不用等待取数完成，因为会耗时约一分钟。
 3、取数看芯片输出，在遮光条件下运行到./pede.sh时的RMS值应该为1.6左右。
 
-
+常用代码：
+./pd1SyncDraw2D.sh 5 2901 -10 10 1 500hv29_01
+./pd1SyncDraw2D.sh 30 2 -10 10 1 cnsn_20190917ok
 

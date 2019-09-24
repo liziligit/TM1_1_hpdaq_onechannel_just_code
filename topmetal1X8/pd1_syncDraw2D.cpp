@@ -8,8 +8,8 @@
 #include <TH2D.h>
 #include <TCanvas.h>
 #include <TSystem.h>
-//#include "rootlib.h"//for linux
-#include "rootlibx.h"//only for mac
+//#include "rootlib.h"//for linux, old file
+#include "rootlibx.h"//new file for mac or linux
 #include "kbhit.h"
 //the follow #include is for count all the beam file
 #include <sys/types.h>
@@ -24,6 +24,7 @@
 #include <math.h>
 #include <unistd.h> 
 #include <vector>
+
 
 
 //int pd1_syncDraw2D(char *infile, int fileId, char *pedefile, int pedeId, double maxPixelSignal, double minPixelSignal, double ip){

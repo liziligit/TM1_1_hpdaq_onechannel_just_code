@@ -5,8 +5,9 @@ upLimitPixel=$4  # maximum signal value of pixel
 ip=$5
 store_file_name=$6
 #choose the diractory of data
-#data_dir=/Users/lizili/Desktop/CSNS/20190917_TM1_1_hpdaq_onechannel_just_code/data
-data_dir=../data
+data_dir=/Users/lizili/Desktop/CSNS/20190917_TM1_1_hpdaq_onechannel_just_code/data
+# data_dir=/Users/lizili/Desktop/TM1_1_hpdaq_onechannel_mac/data
+# data_dir=../data
 
 if [ "$1" = "" ]
 then
