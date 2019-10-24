@@ -40,7 +40,7 @@ int headLength=head.length();//for beam_
 if(nameId.substr(0,headLength)!=head) return -1;
 
 int dataLength=total-tailLength-headLength;
-string num=nameId.substr(headLength,dataLength);
+string num=nameId.substr(headLength,dataLength);//获得从headlength开始，长度为dataLength的字符串
 return atoi(num.c_str());
 } 
 ///////end of the define

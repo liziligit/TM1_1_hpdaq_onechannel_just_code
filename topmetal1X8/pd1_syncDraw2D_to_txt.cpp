@@ -67,14 +67,14 @@ int k=0;
 
 pd1Pede pede;
 placData_1 pd1;
-char infn[100];
-char pedefn[100];
-char beamfn[100];
+char infn[200];
+char pedefn[200];
+char beamfn[200];
 char txtfn[100];
 
 //sprintf(infn,"%s_%d.pd1",infile, fileId);
-sprintf(pedefn,"%s_%d.txt", pedefile, pedeId);
-sprintf(beamfn,"../data/runData/%s/", store_file_name);
+sprintf(pedefn,"%s/xpede_%d.txt", pedefile, pedeId);
+sprintf(beamfn,"%s/", store_file_name);
 /////get beamId in to list
 vector<string> name_id;
 
@@ -96,7 +96,7 @@ closedir(dir);//关闭目录指针
 vector<int> idList;
 //vector<int> point2name_id;
 
-    for(int j=0;j<name_id.size();j++)
+    for(std::vector<int>::size_type j=0;j<name_id.size();j++)
   {
     //cout << name_id[j] << endl;
     int eId=extractId(name_id[j],"xbeam_",".pd1");
@@ -111,7 +111,7 @@ vector<int> idList;
     //sort number into list point to name_id 
     //sort is not necessary if id is already  in order
     sort(idList.begin(), idList.end());
-    for(int j=0;j<idList.size();j++)
+    for(std::vector<int>::size_type j=0;j<idList.size();j++)
     {
     //cout << idList[j] << endl;
     cout << idList[j] << ' ';
@@ -126,7 +126,7 @@ vector<int> idList;
     pt.setup2DMinMax(minPixelSignal,maxPixelSignal);
     int ch;
 
-  change_pd1: for(int j=0;j<idList.size();j++)
+  change_pd1: for(std::vector<int>::size_type j=0;j<idList.size();j++)
   {
     if(fileId <= idList[j])
     {
@@ -148,7 +148,7 @@ vector<int> idList;
 
 			for(int k=0;k<nCh;k++){
 			if(k<nCh/2){
-				pt.loadData2Hist2D(pd1.frameDat+k*72*72,k+nCh/2);				
+				pt.loadData2Hist2D(pd1.frameDat+k*72*72,k+nCh/2);
 			}else{
 				pt.loadData2Hist2D(pd1.frameDat+k*72*72,nCh-k-1);	
 				}
@@ -207,9 +207,9 @@ vector<int> idList;
 					//for saving frame png	
 					else if(Key_input == 50000)
 					{
-						pt.c->SaveAs(TString::Format("../data/runData/%s/cut_%s_%d_%d.png", store_file_name,store_file_name,fileId,i));
+						pt.c->SaveAs(TString::Format("%s/cut_%s_xbeam%d_xpede%d_iFrame%d.png", infile,store_file_name,pedeId,fileId,i));
 
-						sprintf(txtfn,"../data/runData/%s/cut_%s_%d_%d.txt", store_file_name,store_file_name,fileId,i);
+						sprintf(txtfn,"%s/cut_%s_xbeam%d_xpede%d_iFrame%d.txt", infile,store_file_name,pedeId,fileId,i);
 						ofstream n2(txtfn,ios::trunc);
 						assert(n2); 
 
@@ -283,9 +283,9 @@ vector<int> idList;
 						//for saving frame png	
 						else if(Key_input == 50000)
 						{
-						pt.c->SaveAs(TString::Format("../data/runData/%s/cut_%s_%d_%d.png", store_file_name,store_file_name,fileId,i));
-
-						sprintf(txtfn,"../data/runData/%s/cut_%s_%d_%d.txt", store_file_name,store_file_name,fileId,i);
+						// pt.c->SaveAs(TString::Format("../data/runData/%s/cut_%s_%d_%d.png", store_file_name,store_file_name,fileId,i));
+							pt.c->SaveAs(TString::Format("%s/cut_%s_xbeam%d_xpede%d_iFrame%d.png", infile,store_file_name,pedeId,fileId,i));
+						sprintf(txtfn,"%s/cut_%s_xbeam%d_xpede%d_iFrame%d.png", infile,store_file_name,pedeId,fileId,i);
 						ofstream n2(txtfn,ios::trunc);
 						assert(n2); 
 
@@ -325,7 +325,7 @@ cout << beamfn << "xbeam_*.pd1"<<endl;
     }
 closedir(dir);//关闭目录指针
 
-    for(int j=0;j<name_id.size();j++)
+    for(std::vector<int>::size_type j=0;j<name_id.size();j++)
   {
     //cout << name_id[j] << endl;
     int eId=extractId(name_id[j],"xbeam_",".pd1");
@@ -340,7 +340,7 @@ closedir(dir);//关闭目录指针
     //sort number into list point to name_id 
     //sort is not necessary if id is already  in order
     sort(idList.begin(), idList.end());
-    for(int j=0;j<idList.size();j++)
+    for(std::vector<int>::size_type j=0;j<idList.size();j++)
     {
     //cout << idList[j] << endl;
     cout << idList[j] << ' ';

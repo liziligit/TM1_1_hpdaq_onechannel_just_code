@@ -4,6 +4,10 @@ lowLimitPixel=$3 # minimum signal value of pixel
 upLimitPixel=$4  # maximum signal value of pixel 
 ip=$5
 store_file_name=$6
+#choose the diractory of data
+# data_dir=/Users/lizili/Downloads/
+data_dir=/Users/lizili/Desktop/TM1_1_hpdaq_onechannel_mac/data
+# data_dir=../data
 
 if [ "$1" = "" ]
 then
@@ -42,11 +46,10 @@ then
 fi
 
 script_BM=../script_bm
-#cd ${script_BM}
 
-dataFile=../data/runData/${store_file_name}/xbeam
-# beamFile=../data/runData/${store_file_name}/
-pedeFile=../data/runData/${store_file_name}/xpede
+
+dataFile=${data_dir}/runData/${store_file_name}
+pedeFile=${data_dir}/runData/${store_file_name}
 cppPath=../topmetal1X8
 
 #check if pd1 exist
@@ -66,7 +69,7 @@ cd ${cppPath}
 g++ -o pd1_syncDraw2D_to_txt  pd1_syncDraw2D_to_txt.cpp `root-config --cflags` `root-config --glibs`
 #./pd1_syncDraw2D ${dataFile} ${fileId} ${pedeFile} ${pedeId} ${upLimitPixel} ${lowLimitPixel} ${ip}
 ./pd1_syncDraw2D_to_txt ${dataFile} ${fileId} ${pedeFile} ${pedeId} ${upLimitPixel} ${lowLimitPixel} ${ip} ${store_file_name}
-#root  -L -l -q  "${cppPath}/pd1_syncDraw2D.cpp++(\"${dataFile}\", ${fileId}, \"${pedeFile}\", ${pedeId}, ${upLimitPixel}, ${lowLimitPixel}, ${ip})" 	
+#root  -L -l -q  "${cppPath}/pd1_syncDraw2D.cpp++(\"${dataFile}\", ${fileId}, \"${pedeFile}\", ${pedeId}, ${upLimitPixel}, ${lowLimitPixel}, ${ip})"  
 cd ${script_BM}
 
 

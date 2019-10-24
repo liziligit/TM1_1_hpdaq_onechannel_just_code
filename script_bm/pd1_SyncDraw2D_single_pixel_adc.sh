@@ -1,9 +1,9 @@
 fileId=$1
 pedeId=$2
-lowLimitPixel=$3 # minimum signal value of pixel 
-upLimitPixel=$4  # maximum signal value of pixel 
-ip=$5 #the Num of pixel or 
-store_file_name=$6
+# lowLimitPixel=$3 # minimum signal value of pixel 
+# upLimitPixel=$4  # maximum signal value of pixel 
+ip=$3 #the Num of pixel
+store_file_name=$4
 #choose the diractory of data
 # data_dir=/Users/lizili/Desktop/CSNS/20190917_TM1_1_hpdaq_onechannel_just_code/data
 # data_dir=/Users/lizili/Desktop/TM1_1_hpdaq_onechannel_mac/data
@@ -22,25 +22,25 @@ then
   exit
 fi
 
+# if [ "$3" = "" ]
+# then
+#    echo TH2D Min Range is empty
+#    exit
+#  fi
+
+# if [ "$4" = "" ]
+# then
+#    echo TH2D Max Range is empty
+#    exit
+# fi
+
 if [ "$3" = "" ]
-then
-   echo TH2D Min Range is empty
-   exit
- fi
-
-if [ "$4" = "" ]
-then
-   echo TH2D Max Range is empty
-   exit
-fi
-
-if [ "$5" = "" ]
 then
   echo IP number is empty
   exit
 fi
 
-if [ "$6" = "" ]
+if [ "$4" = "" ]
 then
   echo store_file_name is empty
   exit
@@ -75,7 +75,7 @@ cd ${cppPath}
 # ./pd1_SyncDraw2D_energy_spectrum ${dataFile} ${fileId} ${pedeFile} ${pedeId} ${upLimitPixel} ${lowLimitPixel} ${ip} ${store_file_name}
 
 g++ -o pd1_SyncDraw2D_single_pixel_adc pd1_SyncDraw2D_single_pixel_adc.cpp `root-config --cflags` `root-config --glibs` #`root-config --libs`
-./pd1_SyncDraw2D_single_pixel_adc ${dataFile} ${fileId} ${pedeFile} ${pedeId} ${upLimitPixel} ${lowLimitPixel} ${ip} ${store_file_name} #ip is pixel number
+./pd1_SyncDraw2D_single_pixel_adc ${dataFile} ${fileId} ${pedeFile} ${pedeId} ${ip} ${store_file_name} #ip is pixel number
 
 cd ${script_BM}
 

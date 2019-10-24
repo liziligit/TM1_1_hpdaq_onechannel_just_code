@@ -5,9 +5,10 @@ upLimitPixel=$4  # maximum signal value of pixel
 ip=$5
 store_file_name=$6
 #choose the diractory of data
-data_dir=/Users/lizili/Desktop/CSNS/20190917_TM1_1_hpdaq_onechannel_just_code/data
+# data_dir=/Users/lizili/Desktop/CSNS/20190917_TM1_1_hpdaq_onechannel_just_code/data
 # data_dir=/Users/lizili/Desktop/TM1_1_hpdaq_onechannel_mac/data
 # data_dir=../data
+data_dir=/Users/lizili/Downloads/Topmetal_cable_test
 
 if [ "$1" = "" ]
 then
@@ -47,8 +48,10 @@ fi
 
 script_BM=../script_bm
 
-dataFile=${data_dir}/runData/${store_file_name}
-pedeFile=${data_dir}/runData/${store_file_name}
+# dataFile=${data_dir}/runData/${store_file_name}
+# pedeFile=${data_dir}/runData/${store_file_name}
+dataFile=${data_dir}/${store_file_name}
+pedeFile=${data_dir}/${store_file_name}
 cppPath=../topmetal1X8
 
 #check if pd1 exist
